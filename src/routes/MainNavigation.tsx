@@ -3,6 +3,8 @@ import NotFoundPage from '../pages/notfound-page/NotFoundPage';
 import RegisterPage from '../pages/register-page/RegisterPage';
 import LoginPage from '../pages/login-page/LoginPage';
 import DashboardPage from '../pages/dashboard-page/DashboardPage';
+import PublicRoute from './public-route/PublicRoute';
+import PrivateRoute from './private-route/PrivateRoute';
 
 const MainNavigation = () => {
 
@@ -11,15 +13,15 @@ const MainNavigation = () => {
       <Routes>
         <Route 
           path='/' 
-          element={<LoginPage />}
+          element={<PublicRoute element={<LoginPage />}/>}
         />
         <Route 
           path='/register' 
-          element={<RegisterPage />}
+          element={<PublicRoute element={<RegisterPage />}/>}
         />
         <Route 
           path='/dashboard'   
-          element={<DashboardPage />}
+          element={<PrivateRoute element={<DashboardPage />}/>}
         />
         <Route path='*' Component={NotFoundPage}/>
       </Routes>
