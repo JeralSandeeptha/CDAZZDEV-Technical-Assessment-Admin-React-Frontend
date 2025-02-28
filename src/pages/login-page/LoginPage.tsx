@@ -1,17 +1,40 @@
 import './LoginPage.scss';
 import { getCurrentYear } from '../../utils/getCurrentYear';
-import { Link } from 'react-router-dom';
-import { Avatar, AvatarGroup, Backdrop, Button, CircularProgress, TextField } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import { Alert, Avatar, AvatarGroup, Backdrop, Button, CircularProgress, TextField } from '@mui/material';
 import cartLogo from '../../assets/svgs/approved.png';
 import curlyarrow from '../../assets/svgs/curl-arrow.png';
 import logo from '../../assets/icons/pfizer.png';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import * as Yup from 'yup';
+import CheckIcon from '@mui/icons-material/Check';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import useAuthContext from '../../hooks/useAuthContext';
+import loginUser from '../../services/admin-service/loginAdmin/loginAdmin';
+import { HandleLoginFunctionProps } from '../../types/functions.types';
 
 const LoginPage = () => {
 
+  const navigate = useNavigate();
+  const { setLocalStorageItem } = useLocalStorage();
+  const { setToken } = useAuthContext();
+
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleLogin = (values: HandleLoginFunctionProps) => {
+    loginUser({
+      navigate: navigate,
+      setIsError: setIsError,
+      setIsLoading: setIsLoading,
+      setIsSuccess: setIsSuccess,
+      user: values,
+      setLocalStorageItem: setLocalStorageItem,
+      setToken: setToken
+    });
+  }
   
   const yupValidationSchema = Yup.object({
     email: Yup.string().email('Invalid email format').required('Email is required'),
@@ -28,6 +51,7 @@ const LoginPage = () => {
     validationSchema: yupValidationSchema,
     onSubmit: async (values) => {
       console.log(values);
+      handleLogin(values);
       formik.resetForm();
     },
   });
@@ -39,6 +63,22 @@ const LoginPage = () => {
       <div className="login-left">
 
         <div className="login-content">
+
+          {
+            isError && (
+              <Alert className='alert-message' icon={<CheckIcon fontSize="inherit" />} severity="error">
+                Please try again later
+              </Alert>
+            )
+          }
+          
+          {
+            isSuccess && (
+              <Alert className='alert-message' icon={<CheckIcon fontSize="inherit" />} severity="success">
+                Login Successful
+              </Alert>
+            )
+          }
 
           <Backdrop
             sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
