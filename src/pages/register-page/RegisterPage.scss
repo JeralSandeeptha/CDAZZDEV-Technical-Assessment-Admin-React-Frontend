@@ -175,6 +175,7 @@
     width: 100%;
     background-image: url("https://img.freepik.com/premium-photo/pastel-tone-purple-pink-blue-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4613.jpg");
     background-image: url("https://images.unsplash.com/photo-1584697964190-7383cbee8277?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-image: url("https://img.freepik.com/premium-photo/pastel-tone-purple-pink-blue-gradient-defocused-abstract-photo-smooth-lines-pantone-color-background_49683-4613.jpg");
     // background-image: url("https://img.freepik.com/free-photo/vivid-blurred-colorful-background_58702-2654.jpg?t=st=1732790986~exp=1732794586~hmac=44582ef0566fb235146fa370cf4087a82044eee082855a708d40d9336a7b2ae6&w=996");
     // background-image: url('https://img.freepik.com/free-photo/abstract-gradient-neon-lights_23-2149279137.jpg?t=st=1732828751~exp=1732832351~hmac=c51887adc9b926d57fa967601ef553ee2fe61a62380e7f927d4eaf14233b3a44&w=360');
     background-repeat: no-repeat;
@@ -212,7 +213,7 @@
     }
 
     .right-header {
-      color: $white;
+      color: $black;
       font-size: 3.5vw;
       font-weight: bold;
       line-height: 50px;
@@ -224,7 +225,7 @@
     }
 
     .right-para {
-      color: $white;
+      color: $gray;
       font-family: $third-font;
 
       @media screen and (max-width: $tablet) {
@@ -260,7 +261,7 @@
       }
 
       .users-text {
-        color: $white;
+        color: $gray;
         font-family: $third-font;
 
         @media screen and (max-width: $tablet) {
