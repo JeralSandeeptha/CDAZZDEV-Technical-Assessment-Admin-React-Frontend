@@ -1,17 +1,23 @@
 import './RegisterPage.scss';
-import { Avatar, AvatarGroup, Backdrop, Button, CircularProgress, TextField } from '@mui/material';
+import { Alert, Avatar, AvatarGroup, Backdrop, Button, CircularProgress, TextField } from '@mui/material';
 import cartLogo from '../../assets/svgs/approved.png';
 import { getCurrentYear } from '../../utils/getCurrentYear';
 import curlyarrow from '../../assets/svgs/curl-arrow.png';
 import logo from '../../assets/icons/pfizer.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useState } from 'react';
+import CheckIcon from '@mui/icons-material/Check';
+import { HandleRegisterFunctionProps } from '../../types/functions.types';
+import registerUser from '../../services/admin-service/registerAdmin/registerAdmin';
 
 const RegisterPage = () => {
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const navigate = useNavigate();
   
   const yupValidationSchema = Yup.object({
     email: Yup.string().email('Invalid email format').required('Email is required'),
@@ -20,8 +26,15 @@ const RegisterPage = () => {
       .required('Password is required'),
   });
 
-  const handleLogin = () => {
-    return null;
+  const handleRegister = (values: HandleRegisterFunctionProps) => {
+    console.log(values);
+    registerUser({
+      navigate: navigate,
+      setIsError: setIsError,
+      setIsLoading: setIsLoading,
+      setIsSuccess: setIsSuccess,
+      user: values
+    });
   }
 
   const formik = useFormik({
@@ -32,7 +45,7 @@ const RegisterPage = () => {
     validationSchema: yupValidationSchema,
     onSubmit: async (values) => {
       console.log(values);
-      handleLogin();
+      handleRegister(values);
       formik.resetForm();
     },
   });
@@ -42,6 +55,22 @@ const RegisterPage = () => {
       
       <div className="register-left">
         <div className="register-content">
+
+          {
+            isError && (
+              <Alert className='alert-message' icon={<CheckIcon fontSize="inherit" />} severity="error">
+                Please try again later
+              </Alert>
+            )
+          }
+          
+          {
+            isSuccess && (
+              <Alert className='alert-message' icon={<CheckIcon fontSize="inherit" />} severity="success">
+                Account has been created
+              </Alert>
+            )
+          }
 
           <Backdrop
             sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })}
