@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
 import { NavigateFunction } from "react-router-dom"
-import { AuthRequest, IToken, IUser } from "./interfaces.types"
+import { AuthRequest, ICourse, IToken, IUser } from "./interfaces.types"
 
 export type RegisterUserFunctionProps = {
     setIsLoading: Dispatch<SetStateAction<boolean>>,
@@ -52,6 +52,16 @@ export type DeleteStudentFunctionProps = {
     setIsSuccess: Dispatch<SetStateAction<boolean>>,
 }
 
+export type DeleteCourseFunctionProps = {
+    token: IToken | null,
+    courseId: number | undefined,
+    setCourses: Dispatch<SetStateAction<ICourse[]>>,
+    getCourses: (props: GetAllCouresFunctionProps) => Promise<void>,
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+}
+
 export type GetStudentFunctionProps = {
     token: IToken | null,
     studentId: string | undefined,
@@ -67,3 +77,33 @@ export type UpdateStudentFunctionProps = {
     navigate: NavigateFunction,
     user: { fname: string, lname: string, mobile: string, address: string }
 };
+
+export type UpdateCourseFunctionProps = {
+    token: IToken | null,
+    courseId: string | undefined,
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    navigate: NavigateFunction,
+    course: { title: string, description: string, image: string, instructor: string, start_date: string, end_date: string }
+};
+
+export type GetAllCouresFunctionProps = {
+    token: IToken | null,
+    setCourses: Dispatch<SetStateAction<ICourse[]>>
+}
+
+export type GetSingleCourseFunctionProps = {
+    setCourse: Dispatch<SetStateAction<ICourse | undefined>>,
+    token: IToken | null,
+    courseId: string | undefined
+}
+
+export type AddCourseFunctionProps = {
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    course: { image: string, title: string, description: string, instructor: string, start_date: string, end_date: string },
+    navigate: NavigateFunction,
+    token: IToken | null
+}
