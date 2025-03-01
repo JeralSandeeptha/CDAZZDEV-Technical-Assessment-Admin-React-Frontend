@@ -78,7 +78,7 @@ const CourseList = (props: CourseListComponentprops) => {
               {
                 props.isSuccess && (
                   <Alert className='alert-message' icon={<CheckIcon fontSize="inherit" />} severity="success">
-                    Student Deleted Successfully
+                    Course Removed Successfully
                   </Alert>
                 )
               }

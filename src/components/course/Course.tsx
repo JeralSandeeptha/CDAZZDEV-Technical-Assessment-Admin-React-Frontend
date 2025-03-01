@@ -8,6 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import useAuthContext from "../../hooks/useAuthContext";
 import { useNavigate } from "react-router-dom";
+import deleteCourse from '../../services/course-service/deleteCourse/deleteCourse';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -39,7 +40,15 @@ const Course = (props: CourseComponentprops) => {
   const handleDelete = (id: number | undefined) => {
     const ifConfirmed = window.confirm('Are you sure want to delete this course?');
     if(ifConfirmed) {
-      return null;
+      deleteCourse({
+        courseId: id,
+        getCourses: props.getCourses,
+        setCourses: props.setCourses,
+        setIsError: props.setIsError,
+        setIsSuccess: props.setIsSuccess,
+        setIsLoading: props.setIsLoading,
+        token: token
+      });
     }
   }
     
@@ -69,4 +78,4 @@ const Course = (props: CourseComponentprops) => {
 
 }
 
-export default Course
+export default Course;

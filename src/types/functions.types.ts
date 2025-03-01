@@ -52,6 +52,16 @@ export type DeleteStudentFunctionProps = {
     setIsSuccess: Dispatch<SetStateAction<boolean>>,
 }
 
+export type DeleteCourseFunctionProps = {
+    token: IToken | null,
+    courseId: number | undefined,
+    setCourses: Dispatch<SetStateAction<ICourse[]>>,
+    getCourses: (props: GetAllCouresFunctionProps) => Promise<void>,
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+}
+
 export type GetStudentFunctionProps = {
     token: IToken | null,
     studentId: string | undefined,
