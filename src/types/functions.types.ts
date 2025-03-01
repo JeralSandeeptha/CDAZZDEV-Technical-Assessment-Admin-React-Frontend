@@ -78,6 +78,16 @@ export type UpdateStudentFunctionProps = {
     user: { fname: string, lname: string, mobile: string, address: string }
 };
 
+export type UpdateCourseFunctionProps = {
+    token: IToken | null,
+    courseId: string | undefined,
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    navigate: NavigateFunction,
+    course: { title: string, description: string, image: string, instructor: string, start_date: string, end_date: string }
+};
+
 export type GetAllCouresFunctionProps = {
     token: IToken | null,
     setCourses: Dispatch<SetStateAction<ICourse[]>>
