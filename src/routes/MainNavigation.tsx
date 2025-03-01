@@ -10,6 +10,7 @@ import StudentsPage from '../pages/students-page/StudentsPage';
 import CoursesPage from '../pages/courses-page/CoursesPage';
 import EnrollmnetsPage from '../pages/enrollments-page/EnrollmnetsPage';
 import AddStudentPage from '../pages/add-student/AddStudentPage';
+import UpdateStudentPage from '../pages/update-student/UpdateStudentPage';
 
 const MainNavigation = () => {
 
@@ -47,6 +48,10 @@ const MainNavigation = () => {
         <Route 
           path='/add-student'   
           element={<PrivateRoute element={<AddStudentPage />}/>}
+        />
+        <Route 
+          path='/update-student/:studentId'   
+          element={<PrivateRoute element={<UpdateStudentPage />}/>}
         />
         <Route path='*' Component={NotFoundPage}/>
       </Routes>

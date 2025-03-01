@@ -51,3 +51,19 @@ export type DeleteStudentFunctionProps = {
     setIsError: Dispatch<SetStateAction<boolean>>,
     setIsSuccess: Dispatch<SetStateAction<boolean>>,
 }
+
+export type GetStudentFunctionProps = {
+    token: IToken | null,
+    studentId: string | undefined,
+    setStudent: Dispatch<SetStateAction<IUser | undefined>>,
+}
+
+export type UpdateStudentFunctionProps = {
+    token: IToken | null,
+    studentId: string | undefined,
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    navigate: NavigateFunction,
+    user: { fname: string, lname: string, mobile: string, address: string }
+};

@@ -8,6 +8,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import useAuthContext from "../../hooks/useAuthContext";
 import deleteStudent from "../../services/student-service/deleteStudent/deleteStudent";
 import { StudentComponentprops } from "../../types/component.types";
+import { useNavigate } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -30,9 +31,10 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const Student = (props: StudentComponentprops) => {
 
   const {token} = useAuthContext();
+  const navigate = useNavigate();
 
   const handleUpdate = (id: number | undefined) => {
-    return id;
+    navigate(`/update-student/${id}`);
   }
   
   const handleDelete = (id: number | undefined) => {
