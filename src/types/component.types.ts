@@ -13,3 +13,9 @@ export type PrivateRouteProps = {
 export type PublicRouteProps = {
     element: JSX.Element;
 };
+
+export type PageHeaderProps = {
+    title: string,
+    description: string,
+    image?: string
+}
