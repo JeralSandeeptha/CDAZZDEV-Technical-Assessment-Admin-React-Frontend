@@ -39,7 +39,7 @@ const CourseList = (props: CourseListComponentprops) => {
                 <StyledTableCell align="center">Title</StyledTableCell>
                 <StyledTableCell align="center">Instructor</StyledTableCell>
                 <StyledTableCell align="center">Start Date</StyledTableCell>
-                <StyledTableCell align="center">Joined Date</StyledTableCell>
+                <StyledTableCell align="center">End Date</StyledTableCell>
                 <StyledTableCell align="center">Edit</StyledTableCell>
                 <StyledTableCell align="center">Delete</StyledTableCell>
               </TableRow>
