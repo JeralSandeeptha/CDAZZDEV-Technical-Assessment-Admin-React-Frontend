@@ -24,3 +24,15 @@ export interface IUser{
     lname: string,
     created_at?: string,
 }
+
+export interface ICourse{
+    id?: number,
+    image?: string,
+    title?: string,
+    description?: string,
+    instructor?: string,
+    start_date?: string,
+    end_date?: string,
+    created_at?: Date,
+    updated_at?: Date,
+}
