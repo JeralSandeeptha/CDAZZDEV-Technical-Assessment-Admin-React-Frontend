@@ -9,6 +9,7 @@ import ProfilePage from '../pages/profile-page/ProfilePage';
 import StudentsPage from '../pages/students-page/StudentsPage';
 import CoursesPage from '../pages/courses-page/CoursesPage';
 import EnrollmnetsPage from '../pages/enrollments-page/EnrollmnetsPage';
+import AddStudentPage from '../pages/add-student/AddStudentPage';
 
 const MainNavigation = () => {
 
@@ -42,6 +43,10 @@ const MainNavigation = () => {
         <Route 
           path='/enrollments'   
           element={<PrivateRoute element={<EnrollmnetsPage />}/>}
+        />
+        <Route 
+          path='/add-student'   
+          element={<PrivateRoute element={<AddStudentPage />}/>}
         />
         <Route path='*' Component={NotFoundPage}/>
       </Routes>

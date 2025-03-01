@@ -9,8 +9,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Student from "../student/Student";
-import { Alert, Backdrop, CircularProgress } from "@mui/material";
+import { Alert, Backdrop, Button, CircularProgress } from "@mui/material";
 import CheckIcon from '@mui/icons-material/Check';
+import { Link } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -26,6 +27,9 @@ const StudentsList = (props: StudentsListComponentprops) => {
   return (
     <div className="students-list">
       <div className="students-list-inner">
+        <Link to='/add-student'>
+          <Button style={{marginBottom: '20px'}} data-testid='add-btn' type="submit" variant="contained" size="small" className='control-button'>Register New Student</Button>
+        </Link>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead>

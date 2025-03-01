@@ -10,6 +10,15 @@ export type RegisterUserFunctionProps = {
     navigate: NavigateFunction
 }
 
+export type RegisterStudentFunctionProps = {
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    user: AuthRequest,
+    navigate: NavigateFunction,
+    token: IToken | null
+}
+
 export type LoginUserFunctionProps = {
     setIsLoading: Dispatch<SetStateAction<boolean>>,
     setIsError: Dispatch<SetStateAction<boolean>>,
