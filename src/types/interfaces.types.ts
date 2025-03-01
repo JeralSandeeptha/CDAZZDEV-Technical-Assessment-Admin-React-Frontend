@@ -13,3 +13,14 @@ export interface IAdmin{
     password?: string,
     created_at?: string,
 }
+
+export interface IUser{
+    id?: number,
+    email: string,
+    password: string,
+    mobile: string,
+    address: string,
+    fname: string,
+    lname: string,
+    created_at?: string,
+}

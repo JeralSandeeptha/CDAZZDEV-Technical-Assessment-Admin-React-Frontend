@@ -31,13 +31,16 @@ const Navbar = () => {
                     <img src={logo} alt="logo" className="logo" data-testid='logo'/>
                 </div>
                 <div className='auth-btns'>
+                    <Link to='/dashboard'>
+                        <Button data-testid='dashboardBtn' type="submit" variant="contained" size="small" className='control-button'>Dashboard</Button>
+                    </Link>
                     <Link to='/students'>
                         <Button data-testid='studentsBtn' type="submit" variant="contained" size="small" className='control-button'>Students</Button>
                     </Link>
                     <Link to='/courses'>
                         <Button data-testid='coursesBtn' type="submit" variant="contained" size="small" className='control-button'>Courses</Button>
                     </Link>
-                    <Link to='/enrolments'>
+                    <Link to='/enrollments'>
                         <Button data-testid='enrolmentsBtn' type="submit" variant="contained" size="small" className='control-button'>Enrolments</Button>
                     </Link>
                     <Tooltip title="Logout" data-testid='tooltip-logout'>
