@@ -40,7 +40,6 @@ const EnrollmentList = (props: EnrollmentsListComponentprops) => {
                 <StyledTableCell align="center">Course Name</StyledTableCell>
                 <StyledTableCell align="center">Instructor</StyledTableCell>
                 <StyledTableCell align="center">Enrollment Date</StyledTableCell>
-                <StyledTableCell align="center">Edit</StyledTableCell>
                 <StyledTableCell align="center">Delete</StyledTableCell>
               </TableRow>
             </TableHead>

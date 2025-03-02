@@ -13,7 +13,6 @@ import AddStudentPage from '../pages/add-student/AddStudentPage';
 import UpdateStudentPage from '../pages/update-student/UpdateStudentPage';
 import AddCourse from '../pages/add-course/AddCourse';
 import UpdateCoursePage from '../pages/update-course/UpdateCoursePage';
-import UpdateEnrollment from '../pages/update-enrollment/UpdateEnrollment';
 import AddEnrollment from '../pages/add-enrollment/AddEnrollment';
 
 const MainNavigation = () => {
@@ -68,10 +67,6 @@ const MainNavigation = () => {
         <Route 
           path='/add-enrollment'   
           element={<PrivateRoute element={<AddEnrollment />}/>}
-        />
-        <Route 
-          path='/update-enrollment/:enrollmentId'   
-          element={<PrivateRoute element={<UpdateEnrollment />}/>}
         />
         <Route path='*' Component={NotFoundPage}/>
       </Routes>

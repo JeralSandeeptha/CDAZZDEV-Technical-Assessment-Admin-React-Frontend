@@ -5,9 +5,7 @@ import { styled } from "@mui/material/styles";
 import TableCell, { tableCellClasses } from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import useAuthContext from "../../hooks/useAuthContext";
-import { useNavigate } from "react-router-dom";
 import deleteEnrollment from '../../services/enrollment-service/deleteEnrollment/deleteEnrollment';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -31,11 +29,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const Enrollment = (props: EnrollmentComponentprops) => {
 
   const {token} = useAuthContext();
-  const navigate = useNavigate();
-
-  const handleUpdate = (id: number | undefined) => {
-    navigate(`/update-enrollment/${id}`);
-  }
 
   const handleDelete = (id: number | undefined) => {
     const ifConfirmed = window.confirm('Do you want to remove the student from this course / Unenroll the student?');
@@ -63,11 +56,6 @@ const Enrollment = (props: EnrollmentComponentprops) => {
       <StyledTableCell align="center">{props.enrollment.title}</StyledTableCell>
       <StyledTableCell align="center">{props.enrollment.instructor}</StyledTableCell>
       <StyledTableCell align="center">{props.enrollment.enrollment_date?.split('T')[0]}</StyledTableCell>
-      <StyledTableCell align="center">
-        <IconButton edge="end" aria-label="edit" onClick={() => handleUpdate(props.enrollment.id)}>
-          <EditIcon />
-        </IconButton>
-      </StyledTableCell>
       <StyledTableCell align="center">
         <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(props.enrollment.id)}>
           <DeleteIcon />
