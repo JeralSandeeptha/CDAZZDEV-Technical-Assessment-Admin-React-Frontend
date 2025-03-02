@@ -1,6 +1,6 @@
 import { Dispatch, JSX, SetStateAction } from "react";
-import { ICourse, IToken, IUser } from "./interfaces.types";
-import { GetAllCouresFunctionProps, GetStudentsFunctionProps } from "./functions.types";
+import { ICourse, IEnrollment, IToken, IUser } from "./interfaces.types";
+import { GetAllCouresFunctionProps, GetEnrollmentsFunctionProps, GetStudentsFunctionProps } from "./functions.types";
 
 export type AuthContextType = {
     token: IToken | null;
@@ -61,6 +61,30 @@ export type CourseComponentprops = {
     course: ICourse,
     getCourses: (props: GetAllCouresFunctionProps) => Promise<void>,
     setCourses: Dispatch<SetStateAction<ICourse[]>>
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    isError: boolean,
+    isSuccess: boolean,
+    isLoading: boolean,
+}
+
+export type EnrollmentComponentprops = {
+    enrollment: IEnrollment,
+    getEnrollments: (props: GetEnrollmentsFunctionProps) => Promise<void>,
+    setEnrollments: Dispatch<SetStateAction<IEnrollment[]>>
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    isError: boolean,
+    isSuccess: boolean,
+    isLoading: boolean,
+}
+
+export type EnrollmentsListComponentprops = {
+    enrollments: IEnrollment[],
+    getEnrollments: (props: GetEnrollmentsFunctionProps) => Promise<void>,
+    setEnrollments: Dispatch<SetStateAction<IEnrollment[]>>
     setIsLoading: Dispatch<SetStateAction<boolean>>,
     setIsError: Dispatch<SetStateAction<boolean>>,
     setIsSuccess: Dispatch<SetStateAction<boolean>>,

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react"
 import { NavigateFunction } from "react-router-dom"
-import { AuthRequest, ICourse, IToken, IUser } from "./interfaces.types"
+import { AuthRequest, ICourse, IEnrollment, IToken, IUser } from "./interfaces.types"
 
 export type RegisterUserFunctionProps = {
     setIsLoading: Dispatch<SetStateAction<boolean>>,
@@ -42,6 +42,11 @@ export type GetStudentsFunctionProps = {
     setStudents: Dispatch<SetStateAction<IUser[]>>,
 }
 
+export type GetEnrollmentsFunctionProps = {
+    token: IToken | null,
+    setEnrollments: Dispatch<SetStateAction<IEnrollment[]>>,
+}
+
 export type DeleteStudentFunctionProps = {
     token: IToken | null,
     studentId: number | undefined
@@ -57,6 +62,16 @@ export type DeleteCourseFunctionProps = {
     courseId: number | undefined,
     setCourses: Dispatch<SetStateAction<ICourse[]>>,
     getCourses: (props: GetAllCouresFunctionProps) => Promise<void>,
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+}
+
+export type DeleteEnrollmentFunctionProps = {
+    token: IToken | null,
+    enrollmentId: number | undefined,
+    setEnrollments: Dispatch<SetStateAction<IEnrollment[]>>,
+    getEnrollments: (props: GetEnrollmentsFunctionProps) => Promise<void>,
     setIsLoading: Dispatch<SetStateAction<boolean>>,
     setIsError: Dispatch<SetStateAction<boolean>>,
     setIsSuccess: Dispatch<SetStateAction<boolean>>,
