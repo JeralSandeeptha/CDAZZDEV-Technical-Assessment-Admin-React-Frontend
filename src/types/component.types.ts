@@ -91,4 +91,4 @@ export type EnrollmentsListComponentprops = {
     isError: boolean,
     isSuccess: boolean,
     isLoading: boolean,
-}
+}  

@@ -122,3 +122,13 @@ export type AddCourseFunctionProps = {
     navigate: NavigateFunction,
     token: IToken | null
 }
+
+export type AddEnrollmentFunctionProps = {
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    enrollment: { course_id: string, student_id: string },
+    navigate: NavigateFunction,
+    token: IToken | null
+}
+
