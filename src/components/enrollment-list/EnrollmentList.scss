@@ -1,6 +1,6 @@
 @import '../../styles/all';
 
-.overview-dashboard {
+.students-list {
     font-family: $primary-font;
     width: 100%;
 
@@ -11,17 +11,18 @@
         padding: 0 1rem;
     }
 
-    .overview-dashboard-inner {
+    .students-list-inner {
         max-width: 1200px;
         margin: 0 auto;
         padding-top: 20px;
         padding-bottom: 20px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
 
-        @media screen and (max-width: $mobile-portrait) {
-            grid-template-columns: 1fr;
+        .page-header-title {
+            font-size: 50px;
+
+            @media screen and (max-width: $mobile-portrait) {
+                font-size: 30px;
+            }
         }
     }
 }
