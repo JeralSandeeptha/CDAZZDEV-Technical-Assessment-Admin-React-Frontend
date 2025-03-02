@@ -1,1 +1,27 @@
 @import '../../styles/all';
+
+.overview-dashboard {
+    font-family: $primary-font;
+    width: 100%;
+
+    @media screen and (max-width: 1250px) {
+        padding: 0 2rem;
+    }
+    @media screen and (max-width: $mobile) {
+        padding: 0 1rem;
+    }
+
+    .overview-dashboard-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+
+        @media screen and (max-width: $mobile-portrait) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

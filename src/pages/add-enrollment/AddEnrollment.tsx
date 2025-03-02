@@ -108,7 +108,7 @@ const AddEnrollment = () => {
           icon={<CheckIcon fontSize="inherit" />}
           severity="success"
         >
-          New Course has been added
+          Student enrolled successfully
         </Alert>
       )}
 

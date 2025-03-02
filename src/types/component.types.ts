@@ -2,6 +2,13 @@ import { Dispatch, JSX, SetStateAction } from "react";
 import { ICourse, IEnrollment, IToken, IUser } from "./interfaces.types";
 import { GetAllCouresFunctionProps, GetEnrollmentsFunctionProps, GetStudentsFunctionProps } from "./functions.types";
 
+export type OverviewCardProps = {
+    image?: string,
+    title?: string,
+    description?: string,
+    count?: number,
+}
+
 export type AuthContextType = {
     token: IToken | null;
     setToken: Dispatch<SetStateAction<IToken | null>>;
