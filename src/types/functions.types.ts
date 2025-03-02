@@ -103,6 +103,16 @@ export type UpdateCourseFunctionProps = {
     course: { title: string, description: string, image: string, instructor: string, start_date: string, end_date: string }
 };
 
+export type UpdateEnrollmentFunctionProps = {
+    token: IToken | null,
+    enrollmentId: string | undefined,
+    setIsLoading: Dispatch<SetStateAction<boolean>>,
+    setIsError: Dispatch<SetStateAction<boolean>>,
+    setIsSuccess: Dispatch<SetStateAction<boolean>>,
+    navigate: NavigateFunction,
+    enrollment: { student_id: string, course_id: string, status: string, enrollment_date: Date }
+};
+
 export type GetAllCouresFunctionProps = {
     token: IToken | null,
     setCourses: Dispatch<SetStateAction<ICourse[]>>
@@ -112,6 +122,14 @@ export type GetSingleCourseFunctionProps = {
     setCourse: Dispatch<SetStateAction<ICourse | undefined>>,
     token: IToken | null,
     courseId: string | undefined
+}
+
+export type GetEnrollmentFunctionProps = {
+    setEnrollment: Dispatch<SetStateAction<IEnrollment | undefined>>,
+    token: IToken | null,
+    enrollmentId: string | undefined,
+    studentId?: string | undefined,
+    courseId?: string | undefined,
 }
 
 export type AddCourseFunctionProps = {
